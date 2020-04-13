@@ -1,0 +1,66 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    session:
+      timeout: 600000
+    context-path: /basic
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone:
+      GMT+8
+  jmx:
+    default-domain: basic
+    enabled: false
+  #应用名称
+  application:
+    name: basic
+  datasource:
+    url: jdbc:mysql://10.1.1.241:3306/aipiot?characterEncoding=utf8&useSSL=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initialSize: 2
+      minIdle: 2
+      maxActive: 30
+
+  mqtt:
+    host: tcp://61.155.196.51:1883
+    clientid: aip-iot
+    username: deepblue
+    password: deepblue
+    timeout: 10
+    keepalive: 20
+  redis:
+    host: 10.1.1.241
+    database: 2
+    port: 6379
+    password: palmpass&8584!-redis-m!ser
+    timeout: 1000
+
+  servlet:
+    multipart:
+      max-file-size: 1000Mb
+      max-request-size: 1000Mb
+
+mybatis:
+  #实体类所做包
+  typeAliasesPackage: com.deepbluebi.basic.bean
+  #mapper.xml所在位置
+  mapperLocations: classpath*:mapper/*.xml
+  #  #mybatis debug调试，输出sql语句，线上可以去掉
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  config: classpath:logback-spring.xml
+feign:
+  hystrix:
+    enabled: true
+
+
