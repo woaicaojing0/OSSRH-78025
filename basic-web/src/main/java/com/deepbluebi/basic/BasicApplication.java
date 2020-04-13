@@ -15,6 +15,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class BasicApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(BasicApplication.class);
+        SpringApplication.run(BasicApplication.class, args);
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deepbluebi.basic.dao.aipSaasDao.AipSaasUserBeanDao">
+    <resultMap id="BaseResultMap" type="com.deepbluebi.basic.bean.po.user.AipSaasUserBeanDO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="aip_saas_code" jdbcType="VARCHAR" property="aipSaasCode"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="state" jdbcType="VARCHAR" property="state"/>
+        <result column="is_enable" jdbcType="INTEGER" property="enable"/>
+        <result column="account_type" jdbcType="INTEGER" property="accountType"/>
+        <result column="parent_account_saas_code" jdbcType="VARCHAR" property="parentAccountSaasCode"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="last_modify_time" jdbcType="TIMESTAMP" property="lastModifyTime"/>
+        <result column="last_modify_user" jdbcType="VARCHAR" property="lastModifyUser"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, aip_saas_code, `name`,`password`, phone, `state`,  is_enable,
+        account_type,parent_account_saas_code,remark,create_time, create_user, last_modify_time,
+    last_modify_user
+    </sql>
+
+    <select id="findByLoginName" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM aip_saas_user
+        where name=#{userName} and is_enable= 0
+    </select>
+
+
+</mapper>

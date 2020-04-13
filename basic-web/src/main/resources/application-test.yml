@@ -48,15 +48,15 @@ spring:
     keepalive: 20
   redis:
     host: 127.0.0.1
-    database: 2
+    database: 3
     port: 6379
     password: palmpass&8584!-redis-m!ser
     timeout: 1000
 
   servlet:
     multipart:
-      max-file-size: 1000Mb
-      max-request-size: 1000Mb
+      max-file-size: 1000MB
+      max-request-size: 1000MB
 
 mybatis:
   #实体类所做包
