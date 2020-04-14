@@ -20,7 +20,7 @@ CREATE TABLE `aip_saas_user`
   `last_modify_user`         varchar(40)          DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8 COMMENT ='帐号表';
+  DEFAULT CHARSET = utf8mb4 COMMENT ='帐号表';
 
 INSERT INTO `aip_saas_user` (`id`, `aip_saas_code`, `name`, `password`, `phone`, `state`, `is_enable`, `account_type`,
                              `parent_account_saas_code`, `remark`, `create_time`, `create_user`, `last_modify_time`,
